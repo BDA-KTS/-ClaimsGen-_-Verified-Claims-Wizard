@@ -1,0 +1,17 @@
+scikit-learn
+scipy
+pymagnitude
+numpy
+pandas
+rdflib
+urllib3
+typing
+SPARQLWrapper
+redis
+ruamel-yaml
+python-Levenshtein
+textacy
+sent2vec
+metaphone
+nltk
+git+https://github.com/issa-project/entity-fishing-client-python
