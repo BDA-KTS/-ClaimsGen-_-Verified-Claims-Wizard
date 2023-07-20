@@ -9,8 +9,35 @@ logger = getLogger()
 
 
 class SkosThesaurusMatcher:
+    """
+    Class for matching keywords with a SKOS thesaurus.
+
+    Args:
+        claimskg_graph (Graph): The ClaimsKG graph.
+        thesaurus_path (str, optional): Path to the SKOS thesaurus file. Default is "claimskg/data/thesoz-komplett.xml".
+        skos_xl_labels (bool, optional): Flag indicating whether SKOS-XL labels should be used for matching. Default is True.
+        prefix (str, optional): Prefix for the thesaurus URIs. Default is "http://lod.gesis.org/thesoz/".
+Methods:
+        __init__(self, claimskg_graph: Graph, thesaurus_path="claimskg/data/thesoz-komplett.xml",
+                 skos_xl_labels=True, prefix="http://lod.gesis.org/thesoz/"):
+            Initializes a SkosThesaurusMatcher instance.
+        get_merged_graph(self):
+            Returns the merged graph of the ClaimsKG and thesaurus.
+        find_keyword_matches(self, keyword):
+            Finds keyword matches in the SKOS thesaurus.
+
+    """
     def __init__(self, claimskg_graph: Graph, thesaurus_path="claimskg/data/thesoz-komplett.xml", skos_xl_labels=True,
                  prefix="http://lod.gesis.org/thesoz/"):
+        """
+    Initialize the SkosThesaurusMatcher.
+
+    Args:
+        claimskg_graph (Graph): The ClaimSKG graph.
+        thesaurus_path (str, optional): The path to the thesaurus file. Defaults to "claimskg/data/thesoz-komplett.xml".
+        skos_xl_labels (bool, optional): Whether to use SKOS-XL labels. Defaults to True.
+        prefix (str, optional): The prefix for the thesaurus. Defaults to "http://lod.gesis.org/thesoz/".
+        """
         self.claimskg_graph = claimskg_graph
         self.graph = Graph()
         logger.info("Loading thesaurus into ClaimsKG graph... [{}]".format(thesaurus_path))
@@ -71,9 +98,24 @@ class SkosThesaurusMatcher:
         self.concept_recognizer.initialize()
 
     def get_merged_graph(self):
+        """
+        Get the merged graph of ClaimSKG and the thesaurus.
+
+        Returns:
+            Graph: The merged graph.
+        """
         return self.claimskg_graph + self.graph
 
     def find_keyword_matches(self, keyword):
+        """
+        Find keyword matches in the thesaurus.
+
+        Args:
+            keyword (str): The keyword to match.
+
+        Returns:
+            Set: A set of matching annotations containing the concept ID, matched text, start position, and end position.
+        """
         matching_annotations = self.concept_recognizer.recognize(keyword)
         return_annotations = set()
         for matching_annotation in matching_annotations:
