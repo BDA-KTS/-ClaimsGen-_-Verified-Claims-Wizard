@@ -14,4 +14,3 @@ textacy
 sent2vec
 metaphone
 nltk
-git+https://github.com/issa-project/entity-fishing-client-python
