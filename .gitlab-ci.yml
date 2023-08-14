@@ -3,7 +3,7 @@ stages:
 
 pages:
   stage: deploy
-  image: python:3.8-alpine
+  image: python:3.8
   before_script:
     - apk update && apk add make
     - python -m pip install -r requirements.txt
