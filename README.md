@@ -35,5 +35,4 @@ To install the dependencies you may use: `pip3 install -r requirements.txt`
   The gold file can be downloaded here:
   https://drive.google.com/open?id=1evf67t_p0LqF5ZvNiL-geDCrEBlppZVF
  
-  The URIs correspond to that of the following dataset: 
-  http://andon.tchechmedjiev.eu/files/claimskg_20_12_2018.ttl.gz
+ 
