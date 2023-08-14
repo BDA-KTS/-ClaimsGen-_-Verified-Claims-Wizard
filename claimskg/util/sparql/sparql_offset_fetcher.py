@@ -7,8 +7,30 @@ r = redis.StrictRedis()
 
 
 class SparQLOffsetFetcher:
+    """
+    A class to fetch data from a SPARQL endpoint in a paginated manner with a specified page size and offset.
+
+    Attributes:
+        sparql_wrapper: The SPARQLWrapper instance used to perform SPARQL queries.
+        page_size (int): The number of results to fetch in a single page.
+        current_offset (int): The current offset in the SPARQL query.
+        where_body (str): The WHERE clause of the SPARQL query.
+        prefixes (str): Optional string containing the prefixes used in the SPARQL query.
+        select_columns (str): The SELECT clause of the SPARQL query.
+        count (int): The total count of results for the SPARQL query.
+    """
 
     def __init__(self, sparql_wrapper, page_size, where_body, select_columns, prefixes=""):
+        """
+        Initialize the SparQLOffsetFetcher.
+
+        Args:
+            sparql_wrapper: The SPARQLWrapper instance used to perform SPARQL queries.
+            page_size (int): The number of results to fetch in a single page.
+            where_body (str): The WHERE clause of the SPARQL query.
+            select_columns (str): The SELECT clause of the SPARQL query.
+            prefixes (str, optional): Optional string containing the prefixes used in the SPARQL query.
+        """
         self.sparql_wrapper = sparql_wrapper
         self.page_size = page_size
         self.current_offset = 0
@@ -20,6 +42,12 @@ class SparQLOffsetFetcher:
         self.__get_count__()
 
     def __get_count__(self):
+        """
+        Get the total count of results for the SPARQL query.
+
+        Returns:
+            int: The total count of results.
+        """
         if self.count == -1:
             query = """{prefixes} SELECT count(distinct *) as ?count WHERE {{
                 {where_body}
@@ -32,6 +60,12 @@ class SparQLOffsetFetcher:
         return self.count
 
     def next_page(self):
+        """
+        Fetch the next page of results from the SPARQL endpoint.
+
+        Returns:
+            list: A list of dictionaries containing the query results for the current page.
+        """
         if self.current_offset < self.count:
             query = """{prefixes} SELECT {select_columns} WHERE {{
                         {where_body}
@@ -44,6 +78,12 @@ class SparQLOffsetFetcher:
         return None
 
     def fetch_all(self):
+        """
+        Fetch all the results from the SPARQL endpoint.
+
+        Returns:
+            list: A list of dictionaries containing all the query results.
+        """
         result = list()
         page = list()
         while page is not None:
@@ -53,6 +93,15 @@ class SparQLOffsetFetcher:
         return result
 
     def _fetch_from_cache_or_query(self, query):
+        """
+        Fetch the result from the SPARQL endpoint or retrieve it from the cache.
+
+        Args:
+            query (str): The SPARQL query.
+
+        Returns:
+            dict: A dictionary containing the response from the SPARQL endpoint.
+        """
         result = str()
         found = False
         cache_key = query

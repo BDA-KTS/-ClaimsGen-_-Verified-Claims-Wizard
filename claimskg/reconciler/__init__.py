@@ -16,10 +16,32 @@ stopword_pattern = re.compile(r'\b(' + r'|'.join(_stop_words) + r')\b\s*')
 
 
 def _merge_and_normalise_strings(strings):
+    """
+    Merge a list of strings and normalize the resulting string.
+
+    Parameters:
+        strings (List[str]): List of strings to be merged and normalized.
+
+    Returns:
+        str: The merged and normalized string.
+    """
     return re.sub(r'\[.*?\]|\(.*?\)|\W', ' ', stopword_pattern.sub("", " ".join(strings).strip().lower()))
 
 
 def _process_pairwise_sample(sample_size, collection, seed, callback, *args):
+    """
+    Process pairwise samples from the collection using the given callback function.
+
+    Parameters:
+        sample_size (int): The number of pairwise samples to generate.
+        collection (List[Any]): The collection from which pairwise samples are generated.
+        seed (Optional[int]): Seed for random number generation. Default is None.
+        callback (Callable): The callback function to be applied to each pairwise sample.
+        *args: Additional arguments to be passed to the callback function.
+
+    Returns:
+        List[Any]: The list of results obtained from applying the callback to the pairwise samples.
+    """
     count = len(collection)
     generator_list = itertools.combinations(range(count), 2)
     iterlen = int(count * (count - 1) / 2)
@@ -51,9 +73,26 @@ def _process_pairwise_sample(sample_size, collection, seed, callback, *args):
 
 
 class FactReconciler:
+
     def __init__(self, embeddings: Embeddings, caching: bool, mappings_file_path: str, claims, theta: float,
                  keyword_weight,
                  link_weight, text_weight, entity_weight, seed=None, samples=None):
+        """
+        Initialize the FactReconciler instance.
+
+        Parameters:
+            embeddings (Embeddings): The embeddings used for similarity computation.
+            caching (bool): Flag indicating whether caching is enabled for the reconciler.
+            mappings_file_path (str): The file path for writing the generated mappings. Set to None if no file output is needed.
+            claims (List): The list of claims to be reconciled.
+            theta (float): The threshold value for generating mappings based on the similarity score.
+            keyword_weight: Weight for keyword similarity in the score computation.
+            link_weight: Weight for link similarity in the score computation.
+            text_weight: Weight for text similarity in the score computation.
+            entity_weight: Weight for entity similarity in the score computation.
+            seed (Optional[int]): Seed for random number generation. Default is None.
+            samples (Optional[int]): Number of pairwise samples to generate. If provided, the reconciler will use a random sampling approach. Default is None.
+        """
         self._embeddings = embeddings
         self._caching = caching
         if caching:
@@ -83,6 +122,14 @@ class FactReconciler:
     # self.output_file.write(
     # self._generate_claim_mapping_string_description(claim_a, claim_b))
     def generate_mappings(self):
+        """
+        Generate mappings between claims based on the provided threshold and similarity weights.
+
+        Returns:
+            List[Tuple[Claim, Tuple[Claim, Claim]]]: A list of mappings between claims. Each mapping is represented as a tuple containing:
+                - Claim: The source claim that is mapped to the target claims.
+                - Tuple[Claim, Claim]: A tuple of two target claims that are mapped to the source claim. Can be (None, None) if no mapping is found.
+        """
 
         if self.output_file is not None:
             self.output_file.write(FactReconciler._generate_claim_mapping_output_header())
@@ -125,12 +172,29 @@ class FactReconciler:
 
     @staticmethod
     def _generate_claim_mapping_output_header():
+        """
+        Generate the header string for the output file containing the claim mapping descriptions.
+
+        Returns:
+            str: The header string.
+        """
         return "\"Score\", \"CR Author A\",\"CR Author B\", Review URL A, Review URL B,\"Text Fragments A\"," \
                "\"Text Fragments B\",\"Entities A\",\"Entities B\",\"Keywords A\",\"Keywords B\",\"Citations A\"," \
                "\"Citations B\",\"URI A\",\"URI B\"\n"
 
     @staticmethod
     def _generate_claim_mapping_string_description(score, claim_a, claim_b):
+        """
+        Generate the description string for a claim mapping.
+
+        Parameters:
+            score (float): The score of the claim mapping.
+            claim_a (Claim): The source claim.
+            claim_b (Claim): The target claim.
+
+        Returns:
+            str: The description string for the claim mapping.
+        """
         entities_a = claim_a.claim_entities + claim_a.review_entities
         entities_b = claim_b.claim_entities + claim_b.review_entities
         return "{score},\"{cra_a}\",\"{cra_b}\",\"{ruri_a}\",\"{rurib_b}\",\"{tf_a}\",\"{tf_b}\",\"{ent_a}\",\"{ent_b}\"," \
@@ -148,6 +212,16 @@ class FactReconciler:
 
     @staticmethod
     def _pruning_criterion(claim_a, claim_b):
+        """
+        Determine whether a claim pair should be pruned based on specific criteria.
+
+        Parameters:
+            claim_a (Claim): The first claim to compare.
+            claim_b (Claim): The second claim to compare.
+
+        Returns:
+            bool: True if the claim pair should be pruned, False otherwise.
+        """
         prune = False
         author_score = FactReconciler.author_match(claim_a, claim_b)
 
@@ -176,12 +250,31 @@ class FactReconciler:
 
     @staticmethod
     def author_match(first, other):
+        """
+        Determine if the authors of two claims are a match.
+
+        Parameters:
+            first (Claim): The first claim to compare.
+            other (Claim): The second claim to compare.
+
+        Returns:
+            int: 1 if the authors are a match, 0 otherwise.
+        """
         if first.creative_work_author == other.creative_work_author:
             return 1
         else:
             return 0
 
     def _evaluate_mapping(self, pair):
+        """
+        Evaluate the mapping between two claims and determine if they should be linked.
+
+        Parameters:
+            pair (Tuple[Claim, Claim]): A tuple containing two claims to be evaluated.
+
+        Returns:
+            Tuple[float, Tuple[Claim, Claim]]: A tuple containing the similarity score and the mapping result.
+        """
         result = None
         score = None
         claim_a = pair[0]
@@ -199,6 +292,16 @@ class FactReconciler:
         return score, result
 
     def _claim_similarity(self, claim_a, claim_b):
+        """
+        Calculate the similarity score between two claims.
+
+        Parameters:
+            claim_a (Claim): The first claim to compare.
+            claim_b (Claim): The second claim to compare.
+
+        Returns:
+            float: The similarity score between the two claims.
+        """
         entities_a = claim_a.claim_entities + claim_a.review_entities
         entities_b = claim_b.claim_entities + claim_b.review_entities
         categories_a = claim_a.review_entity_categories + claim_a.claim_entity_categories
