@@ -9,6 +9,7 @@ pages:
     - python -m pip install -r requirements.txt
     - python -m pip install sphinx sphinx-rtd-theme
   script:
+    - python -c "import nltk; nltk.download('stopwords')"
     - cd docs && make clean html
   after_script:
     - mv docs/build/html/ ./public/
