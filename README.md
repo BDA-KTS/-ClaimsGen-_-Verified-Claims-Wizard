@@ -12,9 +12,9 @@ This module provides a normalized rating score for all claims in the dataset, al
 This module uses Rdflib python library to create the model and an abstract RDF graph to then serialize it in one of the supported formats (TTL,n3, XML,nt, pretty-xml,trix, trig, and nquads). Unique URI identifiers are generated as UUIDs that are based on a one-way hash of key attributes for each
 instance.
 
-![Semantic description of image](/images/path/to/folder/image.png "Image Title")
 
-![](model.png)
+
+![ClaimsKG pipeline](ClaimsKG.png)
 
 ### Installation & Requirements
 
