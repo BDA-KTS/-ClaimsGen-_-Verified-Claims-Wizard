@@ -15,4 +15,4 @@ sent2vec
 metaphone
 nltk
 langdetect
-nerd
+entity-fishing-client
