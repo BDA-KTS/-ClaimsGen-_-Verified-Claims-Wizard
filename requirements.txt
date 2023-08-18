@@ -14,3 +14,5 @@ textacy
 sent2vec
 metaphone
 nltk
+langdetect
+nerd
