@@ -157,7 +157,7 @@ class Embeddings(ABC):
 
         Returns:
             ndarray: The aggregated vector.
-        """    
+        """
         length = len(vectors)
         if length > 0:
             sum_vector = vectors[0]
@@ -288,7 +288,7 @@ class LazyDenseEmbeddings(Embeddings):
             use_cache (bool): Flag indicating whether to use caching.
             redis (StrictRedis, optional): An instance of the Redis client for caching. Defaults to None.
         """
-      
+
         super(Embeddings, self).__init__(redis)
 
         with open(vocab_file, "r", encoding="utf-8") as vocab_file:
@@ -461,8 +461,6 @@ class DenseEmbeddings(Embeddings):
         return self._dim
 
 
-
-
 # class MagnitudeEmbeddings(Embeddings):
 #
 #     def __init__(self, embeddings_file):
@@ -512,6 +510,7 @@ class Sent2VecEmbeddings(Embeddings):
         sentence_vector(self, sentence: str, sample=None) -> ndarray:
             Retrieves the vector representation of a sentence.
     """
+
     def __init__(self, embeddings_file):
         """
         Initializes the Sent2VecEmbeddings instance.
