@@ -1,5 +1,21 @@
 # claimskg_generator
-The data lifting module for ClaimsKG that creates the RDF/LOD dataset instantiation from the ClaimsKG model (illustrated hereafter).
+The Generator is a part of ClaimsKG pipeline . The entire pipeline of ClaimsKG consists of two major building blocks, namely the Extractor and Generator. The Generator performs: i) entity annotation and linking ii) rating normalization, and iii) lifting and serialization. The input to the generator should be a file containing claims and their related metadata and the output is a Knowledge Graph.
+
+#Entity Annotation and Linking :
+This module performs Named Entity Recognition and Disambiguation  (NERD) of the claims and their reviews.Python Entity Fishing Client is used in the latest release which dissambiguates against Wikidata. We then use WikipediaExternalRefId to dissambiguate against DBPedia.
+
+#Rating Normalization:
+This module provides a normalized rating score for all claims in the dataset, alongside the original ratings. The claims are classified  into four categories TRUE, FALSE, MIXTURE, OTHER respectively indicated within ClaimsKG
+
+#Lifting and Serialization:
+This module uses Rdflib python library to create the model and an abstract RDF graph to then serialize it in one of the supported formats (TTL,n3, XML,nt, pretty-xml,trix, trig, and nquads). Unique URI identifiers are generated as UUIDs that are based on a one-way hash of key attributes for each
+instance.
+
+### ClaimsKG pipeline
+
+![ClaimsKG pipeline](claimskg_pipeline.PNG)
+
+### Data Model
 
 ![](model.png)
 
@@ -19,21 +35,11 @@ To install the dependencies you may use: `pip3 install -r requirements.txt`
   * `--output [file]` Specifies the output file for the model (default: out.ttl)
   * `--format [format]` Specifies the format of the output serialization. You may use any of the supported formats in the `rdflib` package (xml', 'n3', 'turtle', 'nt', 'pretty-xml', 'trix', 'trig' and 'nquads'; default: turtle)
   * `--model-uri` The base URI of the model (by default `http://data.gesis.org/claimskg/public/`) 
-  * `--resolve` Specifies whether to resolve the Wikipedia page identifiers for TagMe annotations to DBPedia URIs. If this option is activated, the resolution is performed through SPARQL queries to the official DBPedia endpoint, which requires you to have an active Internet connection. Additionally, you will need a running instance of `redis-server` as the results of the queries are cached to prevent unnecessary queries from being performed. If resolve is not supplied, all entities will have URIs of the form `tagme://wikpediaPageID`.
-  * `--threshold [float_value]` If `--resolve` is present, specifies the cutoff confidence threshold to include a TagMe annotations as a mention. The TagMe documentation recommends a value between 0.1 and 0.3 (default 0.3)
+  * `--resolve` Specifies whether to resolve the annotations to DBPedia URIs. If this option is activated, the resolution is performed through SPARQL queries to the official DBPedia endpoint, which requires you to have an active Internet connection. Additionally, you will need a running instance of `redis-server` as the results of the queries are cached to prevent unnecessary queries from being performed. 
+  * `--threshold [float_value]` If `--resolve` is present, specifies the cutoff confidence threshold to include annotations as a mention. 
   * `--include-body` If `--include-body` is supplied, the body of the claim review is included in the `schema:ClaimReview` instances through the `schema:reviewBody` property.
   
   
-  ### Claim Matching Evaluation
-  In the comtext of the claim matching approach, we have produced a annotated dataset for evaluation purposes. The dataset contains 318 matching claims categorized in several types of matches: 
-  - E: Exact match
-  - E*: Same claim but different claimee
-  - ST: Same topic, meaning that two claims are about the same occurence or event
-  
-  The first columnt contains the type of match, the second column, the URI of the first claim, the third column, the URI of the second claim. 
  
-  The gold file can be downloaded here:
-  https://drive.google.com/open?id=1evf67t_p0LqF5ZvNiL-geDCrEBlppZVF
  
-  The URIs correspond to that of the following dataset: 
-  http://andon.tchechmedjiev.eu/files/claimskg_20_12_2018.ttl.gz
+ 
