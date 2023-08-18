@@ -1,6 +1,5 @@
 # claimskg_generator
-The pipeline of ClaimsKG consists of two major building blocks, namely the Extractor
-and Generator. The Generator performs: i) entity annotation and linking ii) rating normalization, and iii) lifting and serialization. The input to the generator should be a file containing claims and their related metadata and the output is a Knowledge Graph.
+The Generator is a part of ClaimsKG pipeline . The entire pipeline of ClaimsKG consists of two major building blocks, namely the Extractor and Generator. The Generator performs: i) entity annotation and linking ii) rating normalization, and iii) lifting and serialization. The input to the generator should be a file containing claims and their related metadata and the output is a Knowledge Graph.
 
 #Entity Annotation and Linking :
 This module performs Named Entity Recognition and Disambiguation  (NERD) of the claims and their reviews.Python Entity Fishing Client is used in the latest release which dissambiguates against Wikidata. We then use WikipediaExternalRefId to dissambiguate against DBPedia.
@@ -12,7 +11,7 @@ This module provides a normalized rating score for all claims in the dataset, al
 This module uses Rdflib python library to create the model and an abstract RDF graph to then serialize it in one of the supported formats (TTL,n3, XML,nt, pretty-xml,trix, trig, and nquads). Unique URI identifiers are generated as UUIDs that are based on a one-way hash of key attributes for each
 instance.
 
-
+### ClaimsKG pipeline
 
 ![ClaimsKG pipeline](claimskg_pipeline.PNG)
 
