@@ -1,5 +1,11 @@
 # claimskg_generator
-The data lifting module for ClaimsKG that creates the RDF/LOD dataset instantiation from the ClaimsKG model (illustrated hereafter).
+The pipeline consists of two major building blocks, namely the Extractor
+and Generator.The output of the Extractor serves as input to the Generator. The Generator performs: i) entity annotation and linking ii) rating normalization, and iii) lifting and serialization.
+Entity Annotation and Linking : This module performs Named Entity Recognition and Disambiguation  (NERD) of the claims and their reviews.Python Entity Fishing Client is used in the latest release which dissambiguates against Wikidata
+Rating Normalization: This module provides a normalized rating score for
+all claims in the dataset, alongside the original ratings. The claims are classified  into four categories TRUE, FALSE, MIXTURE, OTHER respectively indicated within ClaimsKG
+Lifting and Serialization: This module uses Rdflib python library to create the model and an abstract RDF graph to then serialize it in one of the supported formats (TTL,n3, XML,nt, pretty-xml,trix, trig, and nquads). Unique URI identifiers are generated as UUIDs that are based on a one-way hash of key attributes for each
+instance
 
 ![](model.png)
 
@@ -24,15 +30,6 @@ To install the dependencies you may use: `pip3 install -r requirements.txt`
   * `--include-body` If `--include-body` is supplied, the body of the claim review is included in the `schema:ClaimReview` instances through the `schema:reviewBody` property.
   
   
-  ### Claim Matching Evaluation
-  In the comtext of the claim matching approach, we have produced a annotated dataset for evaluation purposes. The dataset contains 318 matching claims categorized in several types of matches: 
-  - E: Exact match
-  - E*: Same claim but different claimee
-  - ST: Same topic, meaning that two claims are about the same occurence or event
-  
-  The first columnt contains the type of match, the second column, the URI of the first claim, the third column, the URI of the second claim. 
  
-  The gold file can be downloaded here:
-  https://drive.google.com/open?id=1evf67t_p0LqF5ZvNiL-geDCrEBlppZVF
  
  
