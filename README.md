@@ -14,7 +14,7 @@ instance.
 
 
 
-![ClaimsKG pipeline](ClaimsKG.png)
+![ClaimsKG pipeline](claimskg_pipeline.png)
 
 ### Installation & Requirements
 
