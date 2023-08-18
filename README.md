@@ -16,6 +16,10 @@ instance.
 
 ![ClaimsKG pipeline](claimskg_pipeline.PNG)
 
+### Data Model
+
+![](model.png)
+
 ### Installation & Requirements
 
 This program requires Python 3.x to run.
