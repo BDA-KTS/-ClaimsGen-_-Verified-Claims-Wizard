@@ -1,5 +1,5 @@
 # claimskg_generator
-The pipeline consists of two major building blocks, namely the Extractor
+The pipeline of ClaimsKG consists of two major building blocks, namely the Extractor
 and Generator.The output of the Extractor serves as input to the Generator. The Generator performs: i) entity annotation and linking ii) rating normalization, and iii) lifting and serialization.
 
 #Entity Annotation and Linking :
