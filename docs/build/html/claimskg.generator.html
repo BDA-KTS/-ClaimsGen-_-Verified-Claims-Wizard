@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="claimskg.reconciler package" href="claimskg.reconciler.html" />
+    <link rel="next" title="claimskg.util package" href="claimskg.util.html" />
     <link rel="prev" title="claimskg.annotation package" href="claimskg.annotation.html" /> 
 </head>
 
@@ -49,10 +49,7 @@
 <li class="toctree-l3 current"><a class="reference internal" href="claimskg.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="claimskg.annotation.html">claimskg.annotation package</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">claimskg.generator package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="claimskg.reconciler.html">claimskg.reconciler package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="claimskg.similarity.html">claimskg.similarity package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="claimskg.util.html">claimskg.util package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="claimskg.vsm.html">claimskg.vsm package</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="claimskg.html#module-claimskg">Module contents</a></li>
@@ -150,14 +147,768 @@ NormalizedRatings.OTHER    # Represents other ratings</p>
 </dd></dl>
 
 </section>
-<section id="claimskg-generator-skosthesaurusmatcher-module">
-<h2>claimskg.generator.skosthesaurusmatcher module<a class="headerlink" href="#claimskg-generator-skosthesaurusmatcher-module" title="Permalink to this heading"></a></h2>
+<section id="module-claimskg.generator.skosthesaurusmatcher">
+<span id="claimskg-generator-skosthesaurusmatcher-module"></span><h2>claimskg.generator.skosthesaurusmatcher module<a class="headerlink" href="#module-claimskg.generator.skosthesaurusmatcher" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="claimskg.generator.skosthesaurusmatcher.SkosThesaurusMatcher">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">claimskg.generator.skosthesaurusmatcher.</span></span><span class="sig-name descname"><span class="pre">SkosThesaurusMatcher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">claimskg_graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thesaurus_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'claimskg/data/thesoz-komplett.xml'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skos_xl_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'http://lod.gesis.org/thesoz/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.skosthesaurusmatcher.SkosThesaurusMatcher" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for matching keywords with a SKOS thesaurus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>claimskg_graph</strong> (<em>Graph</em>) – The ClaimsKG graph.</p></li>
+<li><p><strong>thesaurus_path</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to the SKOS thesaurus file. Default is “claimskg/data/thesoz-komplett.xml”.</p></li>
+<li><p><strong>skos_xl_labels</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag indicating whether SKOS-XL labels should be used for matching. Default is True.</p></li>
+<li><p><strong>prefix</strong> (<em>str</em><em>, </em><em>optional</em>) – Prefix for the thesaurus URIs. Default is “<a class="reference external" href="http://lod.gesis.org/thesoz/">http://lod.gesis.org/thesoz/</a>”.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">__init__(self,</span> <span class="pre">claimskg_graph</span></span></dt>
+<dd><dl class="simple">
+<dt>Graph, thesaurus_path=”claimskg/data/thesoz-komplett.xml”,</dt><dd><p>skos_xl_labels=True, prefix=”<a class="reference external" href="http://lod.gesis.org/thesoz/">http://lod.gesis.org/thesoz/</a>”):</p>
+</dd>
+</dl>
+<p>Initializes a SkosThesaurusMatcher instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="claimskg.generator.skosthesaurusmatcher.SkosThesaurusMatcher.get_merged_graph">
+<span class="sig-name descname"><span class="pre">get_merged_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.skosthesaurusmatcher.SkosThesaurusMatcher.get_merged_graph" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the merged graph of the ClaimsKG and thesaurus.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="claimskg.generator.skosthesaurusmatcher.SkosThesaurusMatcher.find_keyword_matches">
+<span class="sig-name descname"><span class="pre">find_keyword_matches</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyword</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.skosthesaurusmatcher.SkosThesaurusMatcher.find_keyword_matches" title="Permalink to this definition"></a></dt>
+<dd><p>Finds keyword matches in the SKOS thesaurus.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">find_keyword_matches</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyword</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Permalink to this definition"></a></dt>
+<dd><p>Find keyword matches in the thesaurus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>keyword</strong> (<em>str</em>) – The keyword to match.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A set of matching annotations containing the concept ID, matched text, start position, and end position.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">get_merged_graph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id1" title="Permalink to this definition"></a></dt>
+<dd><p>Get the merged graph of ClaimSKG and the thesaurus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The merged graph.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Graph</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="claimskg-generator-statistics-module">
-<h2>claimskg.generator.statistics module<a class="headerlink" href="#claimskg-generator-statistics-module" title="Permalink to this heading"></a></h2>
+<section id="module-claimskg.generator.statistics">
+<span id="claimskg-generator-statistics-module"></span><h2>claimskg.generator.statistics module<a class="headerlink" href="#module-claimskg.generator.statistics" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.ClaimsKGStatistics">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">claimskg.generator.statistics.</span></span><span class="sig-name descname"><span class="pre">ClaimsKGStatistics</span></span><a class="headerlink" href="#claimskg.generator.statistics.ClaimsKGStatistics" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for computing statistics related to ClaimsKG.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.ClaimsKGStatistics.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.statistics.ClaimsKGStatistics.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initializes a ClaimsKGStatistics instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">_increment_statistic(self,</span> <span class="pre">key</span></span></dt>
+<dd><p>StatKeys, value: float):
+Increments a specific statistic by a given value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.ClaimsKGStatistics.compute_stats_for_review">
+<span class="sig-name descname"><span class="pre">compute_stats_for_review</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">claim</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.statistics.ClaimsKGStatistics.compute_stats_for_review" title="Permalink to this definition"></a></dt>
+<dd><p>Computes statistics for a claim review.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.ClaimsKGStatistics.count_mapping">
+<span class="sig-name descname"><span class="pre">count_mapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.statistics.ClaimsKGStatistics.count_mapping" title="Permalink to this definition"></a></dt>
+<dd><p>Increments the claim mappings statistic by 1.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.ClaimsKGStatistics.output_stats">
+<span class="sig-name descname"><span class="pre">output_stats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.statistics.ClaimsKGStatistics.output_stats" title="Permalink to this definition"></a></dt>
+<dd><p>Outputs the computed statistics.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">compute_stats_for_review</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">claim</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id2" title="Permalink to this definition"></a></dt>
+<dd><p>Computes statistics for a claim review.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>claim</strong> – The claim review object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">count_mapping</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id3" title="Permalink to this definition"></a></dt>
+<dd><p>Increments the claim mappings statistic by 1.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">output_stats</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id4" title="Permalink to this definition"></a></dt>
+<dd><p>Outputs the computed statistics.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">claimskg.generator.statistics.</span></span><span class="sig-name descname"><span class="pre">StatKeys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.statistics.StatKeys" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Enum class representing statistical keys used in ClaimsKGStatistics.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.CITATIONS_PER_CREATIVE_WORK">
+<span class="sig-name descname"><span class="pre">CITATIONS_PER_CREATIVE_WORK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Citations</span> <span class="pre">per</span> <span class="pre">CreativeWork'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.CITATIONS_PER_CREATIVE_WORK" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.CLAIMS_WITHOUT_AUTHOR">
+<span class="sig-name descname"><span class="pre">CLAIMS_WITHOUT_AUTHOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Claims</span> <span class="pre">reviews</span> <span class="pre">without</span> <span class="pre">author'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.CLAIMS_WITHOUT_AUTHOR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.CLAIMS_WITH_AUTHOR_PERCENT">
+<span class="sig-name descname"><span class="pre">CLAIMS_WITH_AUTHOR_PERCENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Claims</span> <span class="pre">with</span> <span class="pre">author'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.CLAIMS_WITH_AUTHOR_PERCENT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.CLAIMS_WITH_CITATIONS_PERCENT">
+<span class="sig-name descname"><span class="pre">CLAIMS_WITH_CITATIONS_PERCENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Claims</span> <span class="pre">with</span> <span class="pre">at</span> <span class="pre">least</span> <span class="pre">one</span> <span class="pre">citations'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.CLAIMS_WITH_CITATIONS_PERCENT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.CLAIMS_WITH_DATE_PERCENT">
+<span class="sig-name descname"><span class="pre">CLAIMS_WITH_DATE_PERCENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Claims</span> <span class="pre">with</span> <span class="pre">date</span> <span class="pre">published'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.CLAIMS_WITH_DATE_PERCENT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.CLAIMS_WITH_ENTITIES_PERCENT">
+<span class="sig-name descname"><span class="pre">CLAIMS_WITH_ENTITIES_PERCENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Claims</span> <span class="pre">with</span> <span class="pre">at</span> <span class="pre">least</span> <span class="pre">one</span> <span class="pre">entity</span> <span class="pre">mention'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.CLAIMS_WITH_ENTITIES_PERCENT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.CLAIMS_WITH_TEXT_PERCENT">
+<span class="sig-name descname"><span class="pre">CLAIMS_WITH_TEXT_PERCENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Claims</span> <span class="pre">with</span> <span class="pre">text'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.CLAIMS_WITH_TEXT_PERCENT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.CLAIM_MAPPINGS">
+<span class="sig-name descname"><span class="pre">CLAIM_MAPPINGS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CreativeWork</span> <span class="pre">Mappings'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.CLAIM_MAPPINGS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.CLAIM_REVIEW">
+<span class="sig-name descname"><span class="pre">CLAIM_REVIEW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ClaimReview'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.CLAIM_REVIEW" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.CREATIVE_WORK">
+<span class="sig-name descname"><span class="pre">CREATIVE_WORK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CreativeWork'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.CREATIVE_WORK" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.ENTITIES_PER_CLAIM">
+<span class="sig-name descname"><span class="pre">ENTITIES_PER_CLAIM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Entities</span> <span class="pre">per</span> <span class="pre">claim'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.ENTITIES_PER_CLAIM" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.ENTITIES_PER_REVIEW">
+<span class="sig-name descname"><span class="pre">ENTITIES_PER_REVIEW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Entities</span> <span class="pre">per</span> <span class="pre">review'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.ENTITIES_PER_REVIEW" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.ENTITY">
+<span class="sig-name descname"><span class="pre">ENTITY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Total</span> <span class="pre">Number</span> <span class="pre">of</span> <span class="pre">Entities'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.ENTITY" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.FALSE_CLAIMS">
+<span class="sig-name descname"><span class="pre">FALSE_CLAIMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Claims</span> <span class="pre">rated</span> <span class="pre">as</span> <span class="pre">FALSE</span> <span class="pre">under</span> <span class="pre">our</span> <span class="pre">normalized</span> <span class="pre">scale'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.FALSE_CLAIMS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.KEWORDS_DBPEDIA">
+<span class="sig-name descname"><span class="pre">KEWORDS_DBPEDIA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Keywords</span> <span class="pre">reconciled</span> <span class="pre">with</span> <span class="pre">DBPedia'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.KEWORDS_DBPEDIA" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.KEWORDS_THESOZ">
+<span class="sig-name descname"><span class="pre">KEWORDS_THESOZ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Keywords</span> <span class="pre">reconciled</span> <span class="pre">with</span> <span class="pre">TheSoz'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.KEWORDS_THESOZ" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.KEWORDS_THESOZ_DBPEDIA">
+<span class="sig-name descname"><span class="pre">KEWORDS_THESOZ_DBPEDIA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Keywords</span> <span class="pre">reconciled</span> <span class="pre">with</span> <span class="pre">both</span> <span class="pre">TheSoz</span> <span class="pre">and</span> <span class="pre">DBPedia'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.KEWORDS_THESOZ_DBPEDIA" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.KEWORDS_UNESCO">
+<span class="sig-name descname"><span class="pre">KEWORDS_UNESCO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Keywords</span> <span class="pre">reconciled</span> <span class="pre">with</span> <span class="pre">Unesco'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.KEWORDS_UNESCO" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.KEWORDS_UNESCO_DBPEDIA">
+<span class="sig-name descname"><span class="pre">KEWORDS_UNESCO_DBPEDIA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Keywords</span> <span class="pre">reconciled</span> <span class="pre">with</span> <span class="pre">both</span> <span class="pre">UNESCO</span> <span class="pre">and</span> <span class="pre">DBPedia'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.KEWORDS_UNESCO_DBPEDIA" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.KEYWORDS">
+<span class="sig-name descname"><span class="pre">KEYWORDS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Keywords'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.KEYWORDS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.KEYWORDS_PER_REVIEW">
+<span class="sig-name descname"><span class="pre">KEYWORDS_PER_REVIEW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Keywords</span> <span class="pre">per</span> <span class="pre">review'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.KEYWORDS_PER_REVIEW" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.MIXTURE_CLAIMS">
+<span class="sig-name descname"><span class="pre">MIXTURE_CLAIMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Claims</span> <span class="pre">rated</span> <span class="pre">as</span> <span class="pre">MIXTURE</span> <span class="pre">under</span> <span class="pre">our</span> <span class="pre">normalized</span> <span class="pre">scale'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.MIXTURE_CLAIMS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.OTHER_CLAIMS">
+<span class="sig-name descname"><span class="pre">OTHER_CLAIMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Claims</span> <span class="pre">rated</span> <span class="pre">as</span> <span class="pre">OTHER</span> <span class="pre">under</span> <span class="pre">our</span> <span class="pre">normalized</span> <span class="pre">scale'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.OTHER_CLAIMS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.REVIEW_WITH_ENTITIES">
+<span class="sig-name descname"><span class="pre">REVIEW_WITH_ENTITIES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Reviews</span> <span class="pre">with</span> <span class="pre">at</span> <span class="pre">least</span> <span class="pre">one</span> <span class="pre">entity</span> <span class="pre">mention'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.REVIEW_WITH_ENTITIES" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.REVIEW_WITH_HEADLINE_PERCENT">
+<span class="sig-name descname"><span class="pre">REVIEW_WITH_HEADLINE_PERCENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Reviews</span> <span class="pre">with</span> <span class="pre">a</span> <span class="pre">headline'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.REVIEW_WITH_HEADLINE_PERCENT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.REVIEW_WITH_KEYWORDS_PERCENT">
+<span class="sig-name descname"><span class="pre">REVIEW_WITH_KEYWORDS_PERCENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Reviews</span> <span class="pre">with</span> <span class="pre">at</span> <span class="pre">least</span> <span class="pre">one</span> <span class="pre">keyword'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.REVIEW_WITH_KEYWORDS_PERCENT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.statistics.StatKeys.TRUE_CLAIMS">
+<span class="sig-name descname"><span class="pre">TRUE_CLAIMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Claims</span> <span class="pre">rated</span> <span class="pre">as</span> <span class="pre">TRUE</span> <span class="pre">under</span> <span class="pre">our</span> <span class="pre">normalized</span> <span class="pre">scale'</span></em><a class="headerlink" href="#claimskg.generator.statistics.StatKeys.TRUE_CLAIMS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
+<section id="module-claimskg.generator">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-claimskg.generator" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">claimskg.generator.</span></span><span class="sig-name descname"><span class="pre">ClaimLogicalView</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a logical view of a claim.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.review_entities">
+<span class="sig-name descname"><span class="pre">review_entities</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.review_entities" title="Permalink to this definition"></a></dt>
+<dd><p>List of review entities associated with the claim.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.review_entity_categories">
+<span class="sig-name descname"><span class="pre">review_entity_categories</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.review_entity_categories" title="Permalink to this definition"></a></dt>
+<dd><p>List of categories associated with the review entities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.claim_entities">
+<span class="sig-name descname"><span class="pre">claim_entities</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.claim_entities" title="Permalink to this definition"></a></dt>
+<dd><p>List of entities associated with the claim.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.claim_entity_categories">
+<span class="sig-name descname"><span class="pre">claim_entity_categories</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.claim_entity_categories" title="Permalink to this definition"></a></dt>
+<dd><p>List of categories associated with the claim entities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.keywords">
+<span class="sig-name descname"><span class="pre">keywords</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.keywords" title="Permalink to this definition"></a></dt>
+<dd><p>Set of keywords extracted from the claim.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.keywords_thesoz">
+<span class="sig-name descname"><span class="pre">keywords_thesoz</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.keywords_thesoz" title="Permalink to this definition"></a></dt>
+<dd><p>Set of keywords mapped to Thesoz ontology.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.keywords_unesco">
+<span class="sig-name descname"><span class="pre">keywords_unesco</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.keywords_unesco" title="Permalink to this definition"></a></dt>
+<dd><p>Set of keywords mapped to UNESCO ontology.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.keywords_dbpedia">
+<span class="sig-name descname"><span class="pre">keywords_dbpedia</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.keywords_dbpedia" title="Permalink to this definition"></a></dt>
+<dd><p>Set of keywords mapped to DBpedia ontology.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.keywords_thesoz_dbpedia">
+<span class="sig-name descname"><span class="pre">keywords_thesoz_dbpedia</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.keywords_thesoz_dbpedia" title="Permalink to this definition"></a></dt>
+<dd><p>Set of keywords mapped to both Thesoz and DBpedia ontologies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.keywords_unesco_dbpedia">
+<span class="sig-name descname"><span class="pre">keywords_unesco_dbpedia</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.keywords_unesco_dbpedia" title="Permalink to this definition"></a></dt>
+<dd><p>Set of keywords mapped to both UNESCO and DBpedia ontologies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.links">
+<span class="sig-name descname"><span class="pre">links</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.links" title="Permalink to this definition"></a></dt>
+<dd><p>List of links associated with the claim.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.text_fragments">
+<span class="sig-name descname"><span class="pre">text_fragments</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.text_fragments" title="Permalink to this definition"></a></dt>
+<dd><p>List of text fragments extracted from the claim.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.claimreview_author">
+<span class="sig-name descname"><span class="pre">claimreview_author</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.claimreview_author" title="Permalink to this definition"></a></dt>
+<dd><p>Author of the claim review.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.creative_work_author">
+<span class="sig-name descname"><span class="pre">creative_work_author</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.creative_work_author" title="Permalink to this definition"></a></dt>
+<dd><p>Author of the creative work.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.creative_work_uri">
+<span class="sig-name descname"><span class="pre">creative_work_uri</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.creative_work_uri" title="Permalink to this definition"></a></dt>
+<dd><p>URI of the creative work.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>URIRef</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.claim_review_url">
+<span class="sig-name descname"><span class="pre">claim_review_url</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.claim_review_url" title="Permalink to this definition"></a></dt>
+<dd><p>URL of the claim review.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>URIRef</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.claim_date">
+<span class="sig-name descname"><span class="pre">claim_date</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.claim_date" title="Permalink to this definition"></a></dt>
+<dd><p>Date of the claim.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.review_date">
+<span class="sig-name descname"><span class="pre">review_date</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.review_date" title="Permalink to this definition"></a></dt>
+<dd><p>Date of the review.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.has_body_text">
+<span class="sig-name descname"><span class="pre">has_body_text</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.has_body_text" title="Permalink to this definition"></a></dt>
+<dd><p>Indicates if the claim has body text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.has_headline">
+<span class="sig-name descname"><span class="pre">has_headline</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.has_headline" title="Permalink to this definition"></a></dt>
+<dd><p>Indicates if the claim has a headline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.title">
+<span class="sig-name descname"><span class="pre">title</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.title" title="Permalink to this definition"></a></dt>
+<dd><p>Title of the claim.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.normalized_rating">
+<span class="sig-name descname"><span class="pre">normalized_rating</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.normalized_rating" title="Permalink to this definition"></a></dt>
+<dd><p>Normalized rating of the claim.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimLogicalView.claim_review">
+<span class="sig-name descname"><span class="pre">claim_review</span></span><a class="headerlink" href="#claimskg.generator.ClaimLogicalView.claim_review" title="Permalink to this definition"></a></dt>
+<dd><p>Placeholder for claim review object. (To be updated)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>URIRef is an object representing a Uniform Resource Identifier (URI).</p>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimsKGGenerator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">claimskg.generator.</span></span><span class="sig-name descname"><span class="pre">ClaimsKGGenerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_uri</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sparql_wrapper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_body</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolve</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_caching</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.ClaimsKGGenerator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimsKGGenerator.add_dcat_metadata">
+<span class="sig-name descname"><span class="pre">add_dcat_metadata</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.ClaimsKGGenerator.add_dcat_metadata" title="Permalink to this definition"></a></dt>
+<dd><p>Add the DCAT metadata to the graph.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimsKGGenerator.create_contact_vcard">
+<span class="sig-name descname"><span class="pre">create_contact_vcard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.ClaimsKGGenerator.create_contact_vcard" title="Permalink to this definition"></a></dt>
+<dd><p>Create the contact vCard instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The URI of the contact vCard.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>rdflib.term.URIRef</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimsKGGenerator.export_rdf">
+<span class="sig-name descname"><span class="pre">export_rdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">format</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.ClaimsKGGenerator.export_rdf" title="Permalink to this definition"></a></dt>
+<dd><p>Export the RDF graph in the specified format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>format</strong> (<em>str</em>) – The format to export the RDF graph (e.g., ‘turtle’, ‘xml’).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The serialized RDF graph.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimsKGGenerator.generate_model">
+<span class="sig-name descname"><span class="pre">generate_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_rows</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.ClaimsKGGenerator.generate_model" title="Permalink to this definition"></a></dt>
+<dd><p>Generate the ClaimsKG model based on the dataset rows.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dataset_rows</strong> (<em>list</em>) – The dataset rows.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimsKGURIGenerator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">claimskg.generator.</span></span><span class="sig-name descname"><span class="pre">ClaimsKGURIGenerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_uri</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.ClaimsKGURIGenerator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimsKGURIGenerator.claim_review_uri">
+<span class="sig-name descname"><span class="pre">claim_review_uri</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.ClaimsKGURIGenerator.claim_review_uri" title="Permalink to this definition"></a></dt>
+<dd><p>Generate a URI for the claim review associated with the given row.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>row</strong> (<em>dict</em>) – The row containing the data.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URI of the claim review.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rdflib.URIRef</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimsKGURIGenerator.claimskg_organization_uri">
+<span class="sig-name descname"><span class="pre">claimskg_organization_uri</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.ClaimsKGURIGenerator.claimskg_organization_uri" title="Permalink to this definition"></a></dt>
+<dd><p>Generate a URI for the ClaimsKG organization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The URI of the ClaimsKG organization.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>rdflib.URIRef</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimsKGURIGenerator.create_normalized_rating_uri">
+<span class="sig-name descname"><span class="pre">create_normalized_rating_uri</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">normalized_rating</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.ClaimsKGURIGenerator.create_normalized_rating_uri" title="Permalink to this definition"></a></dt>
+<dd><p>Generate a URI for the normalized rating.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>normalized_rating</strong> (<a class="reference internal" href="#claimskg.generator.ratings.NormalizedRatings" title="claimskg.generator.ratings.NormalizedRatings"><em>NormalizedRatings</em></a>) – The normalized rating.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URI of the normalized rating.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rdflib.URIRef</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimsKGURIGenerator.create_original_rating_uri">
+<span class="sig-name descname"><span class="pre">create_original_rating_uri</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.ClaimsKGURIGenerator.create_original_rating_uri" title="Permalink to this definition"></a></dt>
+<dd><p>Generate a URI for the original rating associated with the given row.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>row</strong> (<em>dict</em>) – The row containing the data.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URI of the original rating.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rdflib.URIRef</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimsKGURIGenerator.creative_work_author_uri">
+<span class="sig-name descname"><span class="pre">creative_work_author_uri</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.ClaimsKGURIGenerator.creative_work_author_uri" title="Permalink to this definition"></a></dt>
+<dd><p>Generate a URI for the author of the creative work associated with the given row.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>row</strong> (<em>dict</em>) – The row containing the data.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URI of the creative work author.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rdflib.URIRef</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimsKGURIGenerator.creative_work_uri">
+<span class="sig-name descname"><span class="pre">creative_work_uri</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.ClaimsKGURIGenerator.creative_work_uri" title="Permalink to this definition"></a></dt>
+<dd><p>Generate a URI for the creative work associated with the given row.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>row</strong> (<em>dict</em>) – The row containing the data.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URI of the creative work.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rdflib.URIRef</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimsKGURIGenerator.keyword_uri">
+<span class="sig-name descname"><span class="pre">keyword_uri</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyword</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.ClaimsKGURIGenerator.keyword_uri" title="Permalink to this definition"></a></dt>
+<dd><p>Generate a URI for the given keyword.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>keyword</strong> (<em>str</em>) – The keyword.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URI of the keyword.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rdflib.URIRef</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimsKGURIGenerator.mention_uri">
+<span class="sig-name descname"><span class="pre">mention_uri</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">begin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confidence</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_text_content</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.ClaimsKGURIGenerator.mention_uri" title="Permalink to this definition"></a></dt>
+<dd><p>Generate a URI for the mention of a text fragment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>begin</strong> (<em>int</em>) – The start position of the text fragment.</p></li>
+<li><p><strong>end</strong> (<em>int</em>) – The end position of the text fragment.</p></li>
+<li><p><strong>text</strong> (<em>str</em>) – The text content of the fragment.</p></li>
+<li><p><strong>ref</strong> (<em>str</em>) – Reference to the original source.</p></li>
+<li><p><strong>confidence</strong> (<em>float</em>) – Confidence score of the mention.</p></li>
+<li><p><strong>source_text_content</strong> (<em>str</em>) – The source text content.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URI of the mention.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rdflib.URIRef</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="claimskg.generator.ClaimsKGURIGenerator.organization_uri">
+<span class="sig-name descname"><span class="pre">organization_uri</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#claimskg.generator.ClaimsKGURIGenerator.organization_uri" title="Permalink to this definition"></a></dt>
+<dd><p>Generate a URI for the organization associated with the given row.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>row</strong> (<em>dict</em>) – The row containing the data.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URI of the organization.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rdflib.URIRef</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 
@@ -166,13 +917,13 @@ NormalizedRatings.OTHER    # Represents other ratings</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="claimskg.annotation.html" class="btn btn-neutral float-left" title="claimskg.annotation package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="claimskg.reconciler.html" class="btn btn-neutral float-right" title="claimskg.reconciler package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="claimskg.util.html" class="btn btn-neutral float-right" title="claimskg.util package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, Susmita.G.</p>
+    <p>&#169; Copyright 2023, SusmitaG.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

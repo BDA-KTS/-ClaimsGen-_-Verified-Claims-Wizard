@@ -2,8 +2,8 @@ from logging import getLogger
 
 from rdflib import Graph, Namespace
 
-from claimskg.reconciler.dictionary import StringDictionaryLoader
-from claimskg.reconciler.recognizer.intersection_recognizers import IntersStemConceptRecognizer
+#from claimskg.reconciler.dictionary import StringDictionaryLoader
+#from claimskg.reconciler.recognizer.intersection_recognizers import IntersStemConceptRecognizer
 
 logger = getLogger()
 

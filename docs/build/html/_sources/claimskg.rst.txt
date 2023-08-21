@@ -9,10 +9,7 @@ Subpackages
 
    claimskg.annotation
    claimskg.generator
-   claimskg.reconciler
-   claimskg.similarity
    claimskg.util
-   claimskg.vsm
 
 Module contents
 ---------------

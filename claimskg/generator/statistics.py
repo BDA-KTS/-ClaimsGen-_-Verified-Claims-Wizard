@@ -51,7 +51,6 @@ class ClaimsKGStatistics:
         output_stats(self):
             Outputs the computed statistics.
     """
-
     def __init__(self):
         """
         Initializes a ClaimsKGStatistics instance.
@@ -60,7 +59,7 @@ class ClaimsKGStatistics:
 
         for stat in StatKeys:
             self.counts[stat] = 0
-
+        
         self.repeat_claim_review = []
         self.repeat_creative_work = []
 
@@ -81,14 +80,14 @@ class ClaimsKGStatistics:
         Args:
             claim: The claim review object.
         """
-
+      
         if claim.claim_review not in self.repeat_claim_review:
             self.repeat_claim_review.append(claim.claim_review)
             self._increment_statistic(StatKeys.CLAIM_REVIEW, 1)
         if claim.creative_work_uri not in self.repeat_creative_work:
             self.repeat_creative_work.append(claim.creative_work_uri)
             self._increment_statistic(StatKeys.CREATIVE_WORK, 1)
-
+        
         if claim.creative_work_author is None or len(claim.creative_work_author) == 0:
             self._increment_statistic(StatKeys.CLAIMS_WITHOUT_AUTHOR, 1)
 
@@ -145,15 +144,15 @@ class ClaimsKGStatistics:
         self._increment_statistic(StatKeys.CLAIM_MAPPINGS, 1)
 
     def output_stats(self):
-
+        
         """
         Outputs the computed statistics.
         """
-        self.counts[StatKeys.ENTITIES_PER_REVIEW] /= float(self.counts[StatKeys.CLAIM_REVIEW])  # review
-
+        self.counts[StatKeys.ENTITIES_PER_REVIEW] /= float(self.counts[StatKeys.CLAIM_REVIEW]) #review
+      
         print(self.counts[StatKeys.CLAIM_REVIEW])
-        self.counts[StatKeys.ENTITIES_PER_CLAIM] /= float(self.counts[StatKeys.CREATIVE_WORK])  # claims
-        self.counts[StatKeys.KEYWORDS_PER_REVIEW] /= float(self.counts[StatKeys.CLAIM_REVIEW])
+        self.counts[StatKeys.ENTITIES_PER_CLAIM] /= float(self.counts[StatKeys.CREATIVE_WORK])#claims
+        self.counts[StatKeys.KEYWORDS_PER_REVIEW] /= float(self.counts[StatKeys.CLAIM_REVIEW]) 
         self.counts[StatKeys.CITATIONS_PER_CREATIVE_WORK] /= float(self.counts[StatKeys.CREATIVE_WORK])
 
         self.counts[StatKeys.CLAIMS_WITH_TEXT_PERCENT] /= float(self.counts[StatKeys.CREATIVE_WORK])

@@ -29,7 +29,7 @@ class NormalizedRatings(Enum):
 _normalization_dictionary = {  # type: Dict[str, Dict[str,NormalizedRatings]]
 
     "politifact": {  # type: Dict[str,NormalizedRatings]
-        # Dictionary mapping original ratings to normalized ratings for the "politifact" source.
+     # Dictionary mapping original ratings to normalized ratings for the "politifact" source.
         'incorrect': NormalizedRatings.FALSE,
         'pants-fire': NormalizedRatings.FALSE,
         'pants on fire': NormalizedRatings.FALSE,
@@ -47,10 +47,11 @@ _normalization_dictionary = {  # type: Dict[str, Dict[str,NormalizedRatings]]
         'full-flop': NormalizedRatings.OTHER,
         'half-flip': NormalizedRatings.OTHER,
         'no-flip': NormalizedRatings.OTHER
-
+        
+        
     },
     "snopes": {  # type: Dict[str,NormalizedRatings]
-        # Dictionary mapping original ratings to normalized ratings for the "snopes" source.
+    # Dictionary mapping original ratings to normalized ratings for the "snopes" source.
         'false': NormalizedRatings.FALSE,
         'legend': NormalizedRatings.OTHER,
         'mixture': NormalizedRatings.MIXTURE,
@@ -76,7 +77,7 @@ _normalization_dictionary = {  # type: Dict[str, Dict[str,NormalizedRatings]]
         'MIXTURE OF ACCURATE AND  INACCURATE INFORMATION': NormalizedRatings.MIXTURE
     },
     "africacheck": {  # type: Dict[str,NormalizedRatings]
-        # Dictionary mapping original ratings to normalized ratings for the "africacheck" source.
+    # Dictionary mapping original ratings to normalized ratings for the "africacheck" source.
         'incorrect': NormalizedRatings.FALSE,
         'mostly-correct': NormalizedRatings.MIXTURE,
         'correct': NormalizedRatings.TRUE,
@@ -94,13 +95,13 @@ _normalization_dictionary = {  # type: Dict[str, Dict[str,NormalizedRatings]]
         "satire": NormalizedRatings.OTHER,
     },
     "factscan": {  # type: Dict[str,NormalizedRatings]
-        # Dictionary mapping original ratings to normalized ratings for the "factscan" source.
+    # Dictionary mapping original ratings to normalized ratings for the "factscan" source.
         'false': NormalizedRatings.FALSE,
         'true': NormalizedRatings.TRUE,
         'Misleading': NormalizedRatings.OTHER
     },
     "truthorfiction": {  # type: Dict[str,NormalizedRatings]
-        # Dictionary mapping original ratings to normalized ratings for the "truthorfiction" source.
+    # Dictionary mapping original ratings to normalized ratings for the "truthorfiction" source.
         'fiction': NormalizedRatings.FALSE,
         'truth': NormalizedRatings.TRUE,
         'Mixed': NormalizedRatings.MIXTURE,
@@ -127,10 +128,10 @@ _normalization_dictionary = {  # type: Dict[str, Dict[str,NormalizedRatings]]
         'Truth! But an Opinion!': NormalizedRatings.MIXTURE,
         'Truth! But Postponed!': NormalizedRatings.MIXTURE,
         'Pending Investigation!': NormalizedRatings.OTHER,
-
+        
     },
     "checkyourfact": {  # type: Dict[str,NormalizedRatings]
-        # Dictionary mapping original ratings to normalized ratings for the "checkyourfact" source.
+    # Dictionary mapping original ratings to normalized ratings for the "checkyourfact" source.
         'false': NormalizedRatings.FALSE,
         'true': NormalizedRatings.TRUE,
         'mostly true': NormalizedRatings.MIXTURE,
@@ -143,7 +144,7 @@ _normalization_dictionary = {  # type: Dict[str, Dict[str,NormalizedRatings]]
         'verdict': NormalizedRatings.FALSE
     },
     "factcheck_aap": {
-        # Dictionary mapping original ratings to normalized ratings for the "factcheck_aap" source.
+    # Dictionary mapping original ratings to normalized ratings for the "factcheck_aap" source.
         "True": NormalizedRatings.TRUE,
         "False": NormalizedRatings.FALSE,
         "Mostly True": NormalizedRatings.MIXTURE,
@@ -152,7 +153,7 @@ _normalization_dictionary = {  # type: Dict[str, Dict[str,NormalizedRatings]]
         "Somewhat False": NormalizedRatings.MIXTURE
     },
     "factual_afp": {
-        # Dictionary mapping original ratings to normalized ratings for the "factual_afp" source.
+    # Dictionary mapping original ratings to normalized ratings for the "factual_afp" source.
         'faux': NormalizedRatings.FALSE,
         'article satirique': NormalizedRatings.FALSE,
         'infondé': NormalizedRatings.FALSE,
@@ -162,11 +163,11 @@ _normalization_dictionary = {  # type: Dict[str, Dict[str,NormalizedRatings]]
         'vrai': NormalizedRatings.TRUE,
         'Contexte manquant': NormalizedRatings.FALSE,
         'propos sortis de leur contexte': NormalizedRatings.FALSE,
-        'manque de contexte': NormalizedRatings.FALSE,
+        'manque de contexte': NormalizedRatings.FALSE,        
         "faux, ces photos montrent un couple britannique sans aucun lien de parenté et illustrent un article satirique": NormalizedRatings.FALSE,
         'faux, manque de contexte : vidéo tronquée': NormalizedRatings.FALSE,
         'totalement vrai': NormalizedRatings.TRUE,
-        'plutôt vrai': NormalizedRatings.MIXTURE,
+        'plutôt vrai': NormalizedRatings.MIXTURE,        
         'trompeur': NormalizedRatings.MIXTURE,
         'plutôt faux': NormalizedRatings.MIXTURE,
         'presque': NormalizedRatings.MIXTURE,
@@ -179,8 +180,8 @@ _normalization_dictionary = {  # type: Dict[str, Dict[str,NormalizedRatings]]
 
     },
 
-    "factcheck_afp": {
-        # Dictionary mapping original ratings to normalized ratings for the "factcheck_afp" source.
+     "factcheck_afp": {
+     # Dictionary mapping original ratings to normalized ratings for the "factcheck_afp" source.
         'false': NormalizedRatings.FALSE,
         'partly false': NormalizedRatings.MIXTURE,
         'misleading': NormalizedRatings.FALSE,
@@ -188,8 +189,8 @@ _normalization_dictionary = {  # type: Dict[str, Dict[str,NormalizedRatings]]
         'missing context': NormalizedRatings.FALSE,
         'altered image': NormalizedRatings.OTHER,
         'altered photo': NormalizedRatings.OTHER,
-        'not recommended': NormalizedRatings.OTHER,
-        'true': NormalizedRatings.TRUE,
+        'not recommended' : NormalizedRatings.OTHER,
+        'true' : NormalizedRatings.TRUE,
         'unproven': NormalizedRatings.OTHER,
         'no evidence': NormalizedRatings.OTHER,
         'photo out of context': NormalizedRatings.OTHER,
@@ -198,26 +199,26 @@ _normalization_dictionary = {  # type: Dict[str, Dict[str,NormalizedRatings]]
         'video lacks context': NormalizedRatings.OTHER
     },
     "fullfact": {
-        # Dictionary mapping original ratings to normalized ratings for the "fullfact" source.
+    # Dictionary mapping original ratings to normalized ratings for the "fullfact" source.
         'true': NormalizedRatings.TRUE,
         'false': NormalizedRatings.FALSE,
         'mixture': NormalizedRatings.MIXTURE,
         'other': NormalizedRatings.OTHER
     },
     "eufactcheck": {
-        # Dictionary mapping original ratings to normalized ratings for the "eufactcheck" source.
-
+    # Dictionary mapping original ratings to normalized ratings for the "eufactcheck" source.
+       
         'm': NormalizedRatings.MIXTURE,
         'f': NormalizedRatings.FALSE,
-        't': NormalizedRatings.TRUE,
+        't': NormalizedRatings.TRUE,        
         'u': NormalizedRatings.OTHER
-
+        
     },
-    "polygraph": {
-        # Dictionary mapping original ratings to normalized ratings for the "polygraph" source.
+      "polygraph": {
+      # Dictionary mapping original ratings to normalized ratings for the "polygraph" source.
         'misleading': NormalizedRatings.MIXTURE,
         'true': NormalizedRatings.TRUE,
-        'false': NormalizedRatings.FALSE,
+        'false': NormalizedRatings.FALSE,       
         'unsubstantiated': NormalizedRatings.FALSE,
         'Dangerously Fake': NormalizedRatings.FALSE,
         'FALSE': NormalizedRatings.FALSE,
@@ -240,21 +241,21 @@ _normalization_dictionary = {  # type: Dict[str, Dict[str,NormalizedRatings]]
         'Uncertain': NormalizedRatings.OTHER,
         'Unclear': NormalizedRatings.OTHER,
         'Unclear and Partially True': NormalizedRatings.MIXTURE,
-        'Unsubstantiated': NormalizedRatings.OTHER
-
+        'Unsubstantiated': NormalizedRatings.OTHER       
+        
     },
     "fatabyyano": {
-        # Dictionary mapping original ratings to normalized ratings for the "fatabyyano" source.
+    # Dictionary mapping original ratings to normalized ratings for the "fatabyyano" source.
         'false': NormalizedRatings.FALSE,
-        'altered': NormalizedRatings.MIXTURE,
+        'altered': NormalizedRatings.MIXTURE,      
         'partially false': NormalizedRatings.MIXTURE,
         'satire': NormalizedRatings.OTHER,
         'missing context': NormalizedRatings.OTHER,
-        'true': NormalizedRatings.TRUE
-
+        'true': NormalizedRatings.TRUE     
+        
     },
     "factograph": {
-        # Dictionary mapping original ratings to normalized ratings for the "factograph" source.
+    # Dictionary mapping original ratings to normalized ratings for the "factograph" source.
         'не факт': NormalizedRatings.FALSE,
         'это так': NormalizedRatings.TRUE,
         'да_но': NormalizedRatings.MIXTURE,
@@ -262,38 +263,39 @@ _normalization_dictionary = {  # type: Dict[str, Dict[str,NormalizedRatings]]
         'ДА_НО…': NormalizedRatings.MIXTURE,
         'ДА_НО': NormalizedRatings.MIXTURE,
         'Тak_но,': NormalizedRatings.MIXTURE,
-        'пока не факт': NormalizedRatings.FALSE,  # for now it should be false
-        'скорее_так': NormalizedRatings.MIXTURE,  # true but not 100%
-        'не факт_но': NormalizedRatings.MIXTURE,  # false but....
+        'пока не факт': NormalizedRatings.FALSE, # for now it should be false    
+        'скорее_так': NormalizedRatings.MIXTURE,# true but not 100%
+        'не факт_но': NormalizedRatings.MIXTURE,# false but....
         'не факт_но...': NormalizedRatings.MIXTURE,
-        'видимо_так': NormalizedRatings.TRUE,  # seems to be true
+        'видимо_так': NormalizedRatings.TRUE,#seems to be true
         'не факт_увы,': NormalizedRatings.FALSE,
-        'пока_скорее_так': NormalizedRatings.MIXTURE,  # for now it should be truth
-        'ПОКА_СКОРЕЕ_ТАК': NormalizedRatings.MIXTURE,
-        'сомнительно': NormalizedRatings.MIXTURE,  # we doubts its not true
+        'пока_скорее_так': NormalizedRatings.MIXTURE, # for now it should be truth
+        'ПОКА_СКОРЕЕ_ТАК' : NormalizedRatings.MIXTURE,
+        'сомнительно': NormalizedRatings.MIXTURE, # we doubts its not true
         'СОМНИТЕЛЬНО': NormalizedRatings.MIXTURE,
-        'искажение': NormalizedRatings.OTHER,  # interpreted wrongly
-        'скорее_так_но,': NormalizedRatings.MIXTURE,  # seems to be true but..
-        'это так_но,': NormalizedRatings.MIXTURE,  # true..but
+        'искажение': NormalizedRatings.OTHER,#interpreted wrongly
+        'скорее_так_но,': NormalizedRatings.MIXTURE,#seems to be true but..
+        'это так_но,': NormalizedRatings.MIXTURE,#true..but        
         'правда': NormalizedRatings.TRUE,
         'ПРАВДА': NormalizedRatings.TRUE,
-        'пока сомнительно': NormalizedRatings.MIXTURE,  # for now we dont think its true
-        'скорее_правда': NormalizedRatings.MIXTURE,  # seems to be true;NOT SURE
+        'пока сомнительно': NormalizedRatings.MIXTURE,# for now we dont think its true
+        'скорее_правда': NormalizedRatings.MIXTURE,# seems to be true;NOT SURE
         'СКОРЕЕ_ПРАВДА': NormalizedRatings.MIXTURE,
-        'неправда': NormalizedRatings.FALSE,
-        'возможно_но': NormalizedRatings.MIXTURE  # may be true but...
-
+        'неправда': NormalizedRatings.FALSE,              
+        'возможно_но': NormalizedRatings.MIXTURE   # may be true but...
+        
+        
     },
-
+    
     "vishvanews": {
-        # Dictionary mapping original ratings to normalized ratings for the "vishvanews" source.
+    # Dictionary mapping original ratings to normalized ratings for the "vishvanews" source.
         'false': NormalizedRatings.FALSE,
-        'misleading': NormalizedRatings.MIXTURE,
+        'misleading': NormalizedRatings.MIXTURE,      
         'true': NormalizedRatings.TRUE,
         'False': NormalizedRatings.FALSE,
-        'Misleading': NormalizedRatings.MIXTURE,
+        'Misleading': NormalizedRatings.MIXTURE,      
         'True': NormalizedRatings.TRUE,
-
+        
     }
 }
 
@@ -319,9 +321,9 @@ def normalize(source_name, original_name) -> NormalizedRatings:
     """
     try:
         source = _normalization_dictionary[source_name]
-
+       
         normalized_value = source[_standardize_name(original_name)]
-
+      
     except KeyError:
         normalized_value = NormalizedRatings.OTHER
     return normalized_value
