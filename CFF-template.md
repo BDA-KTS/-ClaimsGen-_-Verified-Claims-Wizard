@@ -7,8 +7,11 @@ authors:
   - name: Susmita Gangopadhyay
     
 
-description: This project constitutes the web scraping component of ClaimsKG that crawls fact checking sites and generates a CSV file with a dump of the extracted information.
+description: This project constitutes RDF generation pipeline according to ClaimsKG schema
+
 repository-code: https://git.gesis.org/bda/ClaimsKG
+
 license: C4 license
+
 homepage: URL to the method homepage (optional)
 
