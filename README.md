@@ -32,7 +32,7 @@ export.py - main file to run the project
 ### Data
 
 The output of Extractor module is the input to the generator module in ClaimsKG.
-Sample output for Extractor module can be found at 
+Sample output for Extractor module can be found at https://git.gesis.org/bda/ClaimsKG
 
 ### Installation & Requirements
 
