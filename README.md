@@ -1,4 +1,4 @@
-# claimskg_generator
+# Description
 The Generator is a part of ClaimsKG pipeline . The entire pipeline of ClaimsKG consists of two major building blocks, namely the Extractor and Generator. The Generator performs: i) entity annotation and linking ii) rating normalization, and iii) lifting and serialization. The input to the generator should be a file containing claims and their related metadata and the output is a Knowledge Graph.
 
 #Entity Annotation and Linking :
@@ -25,7 +25,7 @@ This program requires Python 3.x to run.
 
 To install the dependencies you may use: `pip3 install -r requirements.txt`
 
-### Command-line usage
+### Usage 
 - For usage information you may use 
 ```shell
     python3 export.py -h
@@ -38,6 +38,9 @@ To install the dependencies you may use: `pip3 install -r requirements.txt`
   * `--resolve` Specifies whether to resolve the annotations to DBPedia URIs. If this option is activated, the resolution is performed through SPARQL queries to the official DBPedia endpoint, which requires you to have an active Internet connection. Additionally, you will need a running instance of `redis-server` as the results of the queries are cached to prevent unnecessary queries from being performed. 
   * `--threshold [float_value]` If `--resolve` is present, specifies the cutoff confidence threshold to include annotations as a mention. 
   * `--include-body` If `--include-body` is supplied, the body of the claim review is included in the `schema:ClaimReview` instances through the `schema:reviewBody` property.
+
+## Contact
+Susmita.Gangopadhyay@gesis.org
   
   
  
