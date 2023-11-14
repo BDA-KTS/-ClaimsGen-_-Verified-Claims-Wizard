@@ -15,9 +15,24 @@ instance.
 
 ![ClaimsKG pipeline](claimskg_pipeline.PNG)
 
+### Structure
+
+ClaimsKG-Contains the entity annotation, RDF generation, and rating normalization module
+
+
+docs- contains spynx documentation
+
+
+export.py - main file to run the project
+
 ### Data Model
 
 ![](model.png)
+
+### Data
+
+The output of Extractor module is the input to the generator module in ClaimsKG.
+Sample output for Extractor module can be found at 
 
 ### Installation & Requirements
 
