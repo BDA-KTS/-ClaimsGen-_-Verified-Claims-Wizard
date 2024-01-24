@@ -1,5 +1,5 @@
 # Description
-The Generator is a part of ClaimsKG pipeline . The entire pipeline of ClaimsKG consists of two major building blocks, namely the Extractor and Generator. The Generator performs: i) entity annotation and linking ii) rating normalization, and iii) lifting and serialization. The input to the generator should be a file containing claims and their related metadata and the output is a Knowledge Graph.
+The Generator is a part of ClaimsKG pipeline . The entire pipeline of ClaimsKG consists of two major building blocks, namely the Extractor and Generator. The Generator performs: i) entity annotation and linking ii) rating normalization, and iii) lifting and serialization. The input to the generator should be a file containing claims and their related metadata and the output is a Knowledge Graph built according to ClaimsKG Schema.
 
 #Entity Annotation and Linking :
 This module performs Named Entity Recognition and Disambiguation  (NERD) of the claims and their reviews.Python Entity Fishing Client is used in the latest release which dissambiguates against Wikidata. We then use WikipediaExternalRefId to dissambiguate against DBPedia.
@@ -17,30 +17,22 @@ instance.
 
 ### Structure
 
-ClaimsKG-Contains the entity annotation, RDF generation, and rating normalization module
+ClaimsKG folder -Contains the entity annotation, RDF generation, and rating normalization module
 
 
-docs- contains spynx documentation
+docs folder - contains spynx documentation
 
 
-export.py - main file to run the project
+export.py - The main file to run the project
 
 ### Data Model
 
 ![](model.png)
 
-### Data
+### Social Science Usecase
+John is a social scientist studying about online discourse. He wants acess to false claims within a definite time period about the US Presidential Elections. He visits the MH to find this method that helps him to generate a Knowledge Graph from various fact-checked claims. He uses the search box on the top of the interface and types in Claims Generator or Knowledge Graph Generator. The search functionality of the MH shows him a list or related methods and tutorials that provides John with methods that can help him generate knowledge graphs which he can then querry and find all relevant claims and reuse for his study. 
 
-The output of Extractor module is the input to the generator module in ClaimsKG.
-Sample output for Extractor module can be found at https://git.gesis.org/bda/ClaimsKG
-
-### Installation & Requirements
-
-This program requires Python 3.x to run.
-
-To install the dependencies you may use: `pip3 install -r requirements.txt`
-
-### Usage 
+### Parameter setting
 - For usage information you may use 
 ```shell
     python3 export.py -h
@@ -54,8 +46,23 @@ To install the dependencies you may use: `pip3 install -r requirements.txt`
   * `--threshold [float_value]` If `--resolve` is present, specifies the cutoff confidence threshold to include annotations as a mention. 
   * `--include-body` If `--include-body` is supplied, the body of the claim review is included in the `schema:ClaimReview` instances through the `schema:reviewBody` property.
 
+### Usage
+
+This program requires Python 3.x to run.
+
+To install the dependencies you may use: `pip3 install -r requirements.txt`
+
+### Data
+
+The output of Extractor module is the input to the generator module in ClaimsKG.
+Sample output for Extractor module can be found at https://git.gesis.org/bda/ClaimsKG
+
 ## Contact
 Susmita.Gangopadhyay@gesis.org
+
+## Publication 
+1. ClaimsKG: A knowledge graph of fact-checked claims (Tchechmedjiev, A., Fafalios, P., Boland, K., Gasquet, M., Zloch, M., Zapilko, B., ... & Todorov, K. (2019). ClaimsKG: A knowledge graph of fact-checked claims. In The Semantic Web–ISWC 2019: 18th International Semantic Web Conference, Auckland, New Zealand, October 26–30, 2019, Proceedings, Part II 18 (pp. 309-324). Springer International Publishing.)
+2. Truth or dare: Investigating claims truthfulness with claimskg (Gangopadhyay, S., Boland, K., Dessí, D., Dietze, S., Fafalios, P., Tchechmedjiev, A., ... & Jabeen, H. (2023, May). Truth or dare: Investigating claims truthfulness with claimskg. In D2R2’23-Second International Workshop on Linked Data-driven Resilience Research (Vol. 3401).)
   
   
  
