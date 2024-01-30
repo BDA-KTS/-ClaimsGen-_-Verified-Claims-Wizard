@@ -14,6 +14,12 @@ instance.
 ### Social Science Usecase
 John is a social scientist studying about online discourse. He wants acess to false claims within a definite time period about the US Presidential Elections. He visits the MH to find this method that helps him to generate a Knowledge Graph from various fact-checked claims. He uses the search box on the top of the interface and types in Claims Generator or Knowledge Graph Generator. The search functionality of the MH shows him a list or related methods and tutorials that provides John with methods that can help him generate knowledge graphs which he can then querry and find all relevant claims and reuse for his study. 
 
+
+As a social scientist Mary wants to investigate the impact of Gun laws on the society. She has a huge data dump of claims, but wants to search those pertaining to gun laws over the entire time period. She uses the search box to find methods related to claims.The search functionality of the MH shows her a list or related methods and tutorials related to claims that can help her generate a knowledge graph out of it. She then searches the Knowledge Graph regarding all claims related to the Gun laws and it brings her a list of all relevant claims, be it true, false, mixed or others which she can reuse for her study.
+
+
+Lily is a researcher who wants to study the nature of false claims related to Covid and their impact on the soceity. She collects claims from a number of fact-checking websites but does not have an easy way to pick only those that are false and also related to Covid. She uses the search box in MH to find methods related to fact-checking.The search functionality of the MH shows her a list or related methods and tutorials related to Fact-checking that can help her generate a knowledge graph out of it.She generates the knowledge graph and runs a search querry to find all false claims related to covid or coronavirus. The then collects those claims and uses it for her research.
+
 ### ClaimsKG pipeline
 
 ![ClaimsKG pipeline](claimskg_pipeline.PNG)
