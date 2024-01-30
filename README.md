@@ -50,9 +50,9 @@ To install the dependencies you may use: `pip3 install -r requirements.txt`
 The output of Extractor module is the input to the generator module in ClaimsKG.
 Sample output for Extractor module can be found at https://git.gesis.org/bda/ClaimsKG
 ### Sample Input
-![ClaimsKG pipeline](input_sample.PNG)
-###Sample Output
-![ClaimsKG pipeline](output_sample.PNG)
+![](input_sample.PNG)
+### Sample Output
+![](output_sample.PNG)
 ### How to Use
 - For usage information you may use 
 ```shell
