@@ -11,9 +11,15 @@ This module provides a normalized rating score for all claims in the dataset, al
 This module uses Rdflib python library to create the model and an abstract RDF graph to then serialize it in one of the supported formats (TTL,n3, XML,nt, pretty-xml,trix, trig, and nquads). Unique URI identifiers are generated as UUIDs that are based on a one-way hash of key attributes for each
 instance.
 
+### Social Science Usecase
+John is a social scientist studying about online discourse. He wants acess to false claims within a definite time period about the US Presidential Elections. He visits the MH to find this method that helps him to generate a Knowledge Graph from various fact-checked claims. He uses the search box on the top of the interface and types in Claims Generator or Knowledge Graph Generator. The search functionality of the MH shows him a list or related methods and tutorials that provides John with methods that can help him generate knowledge graphs which he can then querry and find all relevant claims and reuse for his study. 
+
 ### ClaimsKG pipeline
 
 ![ClaimsKG pipeline](claimskg_pipeline.PNG)
+
+### Keywords
+Claims, Fact-checking, Entity Linking
 
 ### Structure
 
@@ -25,14 +31,27 @@ docs folder - contains spynx documentation
 
 export.py - The main file to run the project
 
+### Environment SetUp
+This program requires Python 3.x to run.
+
+### dependencies
+
+To install the dependencies you may use: `pip3 install -r requirements.txt`
+
 ### Data Model
 
 ![](model.png)
 
-### Social Science Usecase
-John is a social scientist studying about online discourse. He wants acess to false claims within a definite time period about the US Presidential Elections. He visits the MH to find this method that helps him to generate a Knowledge Graph from various fact-checked claims. He uses the search box on the top of the interface and types in Claims Generator or Knowledge Graph Generator. The search functionality of the MH shows him a list or related methods and tutorials that provides John with methods that can help him generate knowledge graphs which he can then querry and find all relevant claims and reuse for his study. 
 
-### Parameter setting
+
+
+### Usage
+### Input data
+The output of Extractor module is the input to the generator module in ClaimsKG.
+Sample output for Extractor module can be found at https://git.gesis.org/bda/ClaimsKG
+### Sample Input
+
+### How to Use
 - For usage information you may use 
 ```shell
     python3 export.py -h
@@ -46,16 +65,8 @@ John is a social scientist studying about online discourse. He wants acess to fa
   * `--threshold [float_value]` If `--resolve` is present, specifies the cutoff confidence threshold to include annotations as a mention. 
   * `--include-body` If `--include-body` is supplied, the body of the claim review is included in the `schema:ClaimReview` instances through the `schema:reviewBody` property.
 
-### Usage
 
-This program requires Python 3.x to run.
 
-To install the dependencies you may use: `pip3 install -r requirements.txt`
-
-### Data
-
-The output of Extractor module is the input to the generator module in ClaimsKG.
-Sample output for Extractor module can be found at https://git.gesis.org/bda/ClaimsKG
 
 ## Contact
 Susmita.Gangopadhyay@gesis.org
