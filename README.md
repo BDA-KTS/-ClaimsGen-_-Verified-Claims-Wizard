@@ -1,12 +1,12 @@
 # Description
-The Verified Claims Wizard is a method to generate a repository of verified claims that are collected from diverse fact-checking organizations and put together in one place.  Each claim includes detailed information such as author, URL, date, truth values and other pertinent details, providing a rich resource of verified claims and their corresponding reviews.An user could use this method to generate a repository of claims and then search claims of their own interest based on various filter criteria.  
+The Verified Claims Wizard is a method that generates a repository of verified claims that are collected from diverse fact-checking organizations and puts together in one place.  Each claim includes detailed information such as author, URL, date, truth values and other pertinent details, providing a rich resource of verified claims and their corresponding reviews.An user could use this method to generate a repository of claims and then search claims of their own interest based on various filter criteria.  
 
 ### Social Science Usecase
 
-As a social scientist Mary wants to investigate the impact of Gun laws on the society. She has a huge data dump of claims, but wants to search those pertaining to gun laws over the entire time period. She uses the search box to find methods related to claims.The search functionality of the MH shows her a list of related methods and tutorials related to claims that can help her generate a huge repository of claims out of it. She then searches this repository regarding all claims related to the Gun laws and it brings her a list of all relevant claims, be it true, false, mixed or others which she can reuse for her study.
+Mary is a researcher who wants to investigate the impact of Gun laws on the society. She has a huge collection of claims, from different websites but wants to have them all at one place and search those pertaining to gun laws over a particular time period. She uses the search box to find methods related to claims or fact-checks.The search functionality of the MH shows her a list of related methods and tutorials related to claims. She then uses Verified Claims Wizard that generates a huge repository of claims out of it. She then searches this repository regarding all claims related to the Gun laws and it brings her a list of all relevant claims, be it true, false, mixed or others which she can reuse for her study.
 
 
-Lily is a researcher who wants to study the evolution of false claims related to Covid or coronavirus. She collects claims from a number of fact-checking websites but does not have an easy way to pick only those that are false and also related to Covid. She uses the search box in MH to find methods related to fact-checking.The search functionality of the MH shows her a list or related methods and tutorials related to Fact-Checking that can help her generate a fact checked claims repository out of it.She generates the repository and runs a search querry to find all false claims related to covid or coronavirus in a very short time. The then collects those claims and uses it for her research.
+Lily is a researcher who wants to study the evolution of false claims related to Covid or coronavirus. She collects claims from a number of fact-checking websites but does not have an easy way to pick only those that are false and also related to Covid. She uses the search box in MH to find methods related to fact-checking.The search functionality of the MH shows her a list or related methods and tutorials related to Fact-Checking that can help her generate a fact checked claims repository out of it.She generates the repository using Verified Claims Wizard and runs a search querry to find all false claims related to covid or coronavirus in a very short time. 
 
 
 ### Keywords
@@ -33,15 +33,6 @@ To install the dependencies you may use: `pip3 install -r requirements.txt`
 ### Limitation
 The method generates output based on a specified schema. For changes and alterations in the output, modifications to the schema would be required.  
 
-
-### Usage
-### Input data
-The output of Extractor module is the input to the generator module in ClaimsKG.
-Sample output for Extractor module can be found at https://git.gesis.org/bda/ClaimsKG
-### Sample Input
-![](input_sample.PNG)
-### Sample Output
-![](output_sample.PNG)
 ### How to Use
 - For usage information you may use 
 ```shell
@@ -55,6 +46,16 @@ Sample output for Extractor module can be found at https://git.gesis.org/bda/Cla
   * `--resolve` Specifies whether to resolve the annotations to DBPedia URIs. If this option is activated, the resolution is performed through SPARQL queries to the official DBPedia endpoint, which requires you to have an active Internet connection. Additionally, you will need a running instance of `redis-server` as the results of the queries are cached to prevent unnecessary queries from being performed. 
   * `--threshold [float_value]` If `--resolve` is present, specifies the cutoff confidence threshold to include annotations as a mention. 
   * `--include-body` If `--include-body` is supplied, the body of the claim review is included in the `schema:ClaimReview` instances through the `schema:reviewBody` property.
+
+
+### Usage
+### Input data
+The output of Extractor module is the input to the generator module in ClaimsKG.
+Sample output for Extractor module can be found at https://git.gesis.org/bda/ClaimsKG
+### Sample Input to the method
+![](input_sample.PNG)
+### Sample Output of the method
+![](output_sample.PNG)
 
 
 
