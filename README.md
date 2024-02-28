@@ -48,7 +48,7 @@ The method generates output based on a specified schema. For changes and alterat
   * `--include-body` If `--include-body` is supplied, the body of the claim review is included in the `schema:ClaimReview` instances through the `schema:reviewBody` property.
 
 
-### Usage
+
 ### Input data
 The output of Extractor module is the input to the generator module in ClaimsKG.
 Sample output for Extractor module can be found at https://git.gesis.org/bda/ClaimsKG
