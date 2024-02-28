@@ -1,18 +1,13 @@
 # Description
-The Fact checked Claims Generator is a method to generated a knowledge base of verified claims. Ideally these claims should be collected from various fact-checking organisations.  It is a collection of claims and their reviews along with various important imformation like author, URl, date and other details. 
+The Verified Claims Wizard is a method to generate a repository of verified claims that are collected from diverse fact-checking organizations and put together in one place.  Each claim includes detailed information such as author, URL, date, truth values and other pertinent details, providing a rich resource of verified claims and their corresponding reviews.An user could use this method to generate a repository of claims and then search claims of their own interest .  
 
 ### Social Science Usecase
-John is a social scientist studying about online discourse. He wants acess to false claims within a definite time period about the US Presidential Elections. He visits the MH to find this method that helps him to generate a Knowledge Graph from various fact-checked claims. He uses the search box on the top of the interface and types in Claims Generator or Knowledge Graph Generator. The search functionality of the MH shows him a list or related methods and tutorials that provides John with methods that can help him generate knowledge graphs which he can then querry and find all relevant claims and reuse for his study. 
+
+As a social scientist Mary wants to investigate the impact of Gun laws on the society. She has a huge data dump of claims, but wants to search those pertaining to gun laws over the entire time period. She uses the search box to find methods related to claims.The search functionality of the MH shows her a list of related methods and tutorials related to claims that can help her generate a huge repository of claims out of it. She then searches this repository regarding all claims related to the Gun laws and it brings her a list of all relevant claims, be it true, false, mixed or others which she can reuse for her study.
 
 
-As a social scientist Mary wants to investigate the impact of Gun laws on the society. She has a huge data dump of claims, but wants to search those pertaining to gun laws over the entire time period. She uses the search box to find methods related to claims.The search functionality of the MH shows her a list or related methods and tutorials related to claims that can help her generate a knowledge graph out of it. She then searches the Knowledge Graph regarding all claims related to the Gun laws and it brings her a list of all relevant claims, be it true, false, mixed or others which she can reuse for her study.
+Lily is a researcher who wants to study the evolution of false claims related to Covid or coronavirus. She collects claims from a number of fact-checking websites but does not have an easy way to pick only those that are false and also related to Covid. She uses the search box in MH to find methods related to fact-checking.The search functionality of the MH shows her a list or related methods and tutorials related to Fact-Checking that can help her generate a fact checked claims repository out of it.She generates the repository and runs a search querry to find all false claims related to covid or coronavirus in a very short time. The then collects those claims and uses it for her research.
 
-
-Lily is a researcher who wants to study the evolution of false claims related to Covid or coronavirus. She collects claims from a number of fact-checking websites but does not have an easy way to pick only those that are false and also related to Covid. She uses the search box in MH to find methods related to fact-checking.The search functionality of the MH shows her a list or related methods and tutorials related to Fact-checking that can help her generate a knowledge graph out of it.She generates the knowledge graph and runs a search querry to find all false claims related to covid or coronavirus in a very short time. The then collects those claims and uses it for her research.
-
-### ClaimsKG pipeline
-
-![ClaimsKG pipeline](claimskg_pipeline.PNG)
 
 ### Keywords
 Claims, Fact-checking, Entity Linking
@@ -34,12 +29,9 @@ This program requires Python 3.x to run.
 
 To install the dependencies you may use: `pip3 install -r requirements.txt`
 
-### Data Model
-
-![](model.png)
 
 ### Limitation
-The method generates output based on a specified schema. For changes and alterations in the output, schema needs to be modified  
+The method generates output based on a specified schema. For changes and alterations in the output, modifications to the schema would be required.  
 
 
 ### Usage
