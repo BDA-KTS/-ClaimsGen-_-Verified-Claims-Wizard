@@ -1,7 +1,14 @@
 # Description
 The Verified Claims Wizard is a method that generates a repository of verified claims that are collected from diverse fact-checking organizations and puts together in one place.  Each claim includes detailed information such as author, URL, date, truth values and other pertinent details, providing a rich resource of verified claims and their corresponding reviews.An user could use this method to generate a repository of claims and then search claims of their own interest based on various filter criteria.  
 
+## Relevant research questions that could be adressed with the help of this method 
+
+1. Spread of false political information and consequence on the soceity (Buchanan, T. (2021). Trust, personality, and belief as determinants of the organic reach of political disinformation on social media. The Social Science Journal, 1-12.)
+2. How big brands are implicated with fake news (Berthon, P. R., & Pitt, L. F. (2018). Brands, truthiness and post-fact: managing brands in a post-rational world. Journal of Macromarketing, 38(2), 218-227.)
+3. Investigate underlying motives for online fake news sharing during a particular event or time period (Balakrishnan, V., Ng, K. S., & Rahim, H. A. (2021). To share or not to share–The underlying motives of sharing fake news amidst the COVID-19 pandemic in Malaysia. Technology in Society, 66, 101676.)
+
 ### Social Science Usecase
+
 
 Mary is a researcher who wants to investigate the impact of Gun laws on the society. She has a huge collection of claims, from different websites but wants to have them all at one place and search those pertaining to gun laws over a particular time period. She uses the search box to find methods related to claims or fact-checks.The search functionality of the MH shows her a list of related methods and tutorials related to claims. She then uses Verified Claims Wizard that generates a huge repository of claims out of it. She then searches this repository regarding all claims related to the Gun laws and it brings her a list of all relevant claims, be it true, false, mixed or others which she can reuse for her study.
 
