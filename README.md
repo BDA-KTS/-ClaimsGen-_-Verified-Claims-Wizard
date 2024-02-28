@@ -1,15 +1,5 @@
 # Description
-The Generator is a part of ClaimsKG pipeline . The entire pipeline of ClaimsKG consists of two major building blocks, namely the Extractor and Generator. The Generator performs: i) entity annotation and linking ii) rating normalization, and iii) lifting and serialization. The input to the generator should be a file containing claims and their related metadata and the output is a Knowledge Graph built according to ClaimsKG Schema.
-
-#Entity Annotation and Linking :
-This module performs Named Entity Recognition and Disambiguation  (NERD) of the claims and their reviews.Python Entity Fishing Client is used in the latest release which dissambiguates against Wikidata. We then use WikipediaExternalRefId to dissambiguate against DBPedia.
-
-#Rating Normalization:
-This module provides a normalized rating score for all claims in the dataset, alongside the original ratings. The claims are classified  into four categories TRUE, FALSE, MIXTURE, OTHER respectively indicated within ClaimsKG
-
-#Lifting and Serialization:
-This module uses Rdflib python library to create the model and an abstract RDF graph to then serialize it in one of the supported formats (TTL,n3, XML,nt, pretty-xml,trix, trig, and nquads). Unique URI identifiers are generated as UUIDs that are based on a one-way hash of key attributes for each
-instance.
+The Fact checked Claims Generator is a method to generated a knowledge base of verified claims. Ideally these claims should be collected from various fact-checking organisations.  It is a collection of claims and their reviews along with various important imformation like author, URl, date and other details. 
 
 ### Social Science Usecase
 John is a social scientist studying about online discourse. He wants acess to false claims within a definite time period about the US Presidential Elections. He visits the MH to find this method that helps him to generate a Knowledge Graph from various fact-checked claims. He uses the search box on the top of the interface and types in Claims Generator or Knowledge Graph Generator. The search functionality of the MH shows him a list or related methods and tutorials that provides John with methods that can help him generate knowledge graphs which he can then querry and find all relevant claims and reuse for his study. 
@@ -48,7 +38,8 @@ To install the dependencies you may use: `pip3 install -r requirements.txt`
 
 ![](model.png)
 
-
+### Limitation
+The method generates output based on a specified schema. For changes and alterations in the output, schema needs to be modified  
 
 
 ### Usage
