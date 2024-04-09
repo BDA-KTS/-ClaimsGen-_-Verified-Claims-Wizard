@@ -31,16 +31,12 @@ docs folder - contains spynx documentation
 
 export.py - The main file to run the project
 
-### Environment SetUp
+### Environment Setup
 This program requires Python 3.x to run.
 
-### Dependencies
 
 To install the dependencies you may use: `pip3 install -r requirements.txt`
-
-
-### Limitation
-The method generates output based on a specified schema in the data model section. For changes and alterations in the output, modifications to the schema would be required.  
+  
 
 ### How to Use
 - For usage information you may use 
@@ -74,6 +70,9 @@ Sample output for Extractor module can be found at https://git.gesis.org/bda/Cla
 ### Data Model
 
 ![](model.png)
+
+### Limitation
+The method generates output based on a specified schema in the data model section. For changes and alterations in the output, modifications to the schema would be required
 
 
 ## Contact
