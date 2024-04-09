@@ -21,7 +21,7 @@ Mary is a researcher who wants to investigate the impact of Gun laws on the soci
 Lily is a researcher who wants to study the evolution of false claims related to Covid or coronavirus. She collects claims from a number of fact-checking websites but does not have an easy way to pick only those that are false and also related to Covid. She uses the search box in MH to find methods related to fact-checking.The search functionality of the MH shows her a list or related methods and tutorials related to Fact-Checking that can help her generate a fact checked claims repository out of it.She generates the repository using Verified Claims Wizard and runs a search querry to find all false claims related to covid or coronavirus in a very short time. 
 
 
-### Structure
+### Repository Structure
 
 ClaimsKG folder -Contains the entity annotation, RDF generation, and rating normalization module
 
