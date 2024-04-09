@@ -1,6 +1,9 @@
 # Description
 The Verified Claims Wizard is a method that generates a repository of verified claims that are collected from diverse fact-checking organizations and puts together in one place.  Each claim includes detailed information such as author, URL, date, truth values and other pertinent details, providing a rich resource of verified claims and their corresponding reviews.An user could use this method to generate a repository of claims and then search claims of their own interest based on various filter criteria.  
 
+### Keywords
+Claims, Fact-checking, Entity Linking
+
 ## Relevant research questions that could be adressed with the help of this method 
 
 1. Spread of false political information and consequence on the soceity (Buchanan, T. (2021). Trust, personality, and belief as determinants of the organic reach of political disinformation on social media. The Social Science Journal, 1-12.)
@@ -17,9 +20,6 @@ Mary is a researcher who wants to investigate the impact of Gun laws on the soci
 
 Lily is a researcher who wants to study the evolution of false claims related to Covid or coronavirus. She collects claims from a number of fact-checking websites but does not have an easy way to pick only those that are false and also related to Covid. She uses the search box in MH to find methods related to fact-checking.The search functionality of the MH shows her a list or related methods and tutorials related to Fact-Checking that can help her generate a fact checked claims repository out of it.She generates the repository using Verified Claims Wizard and runs a search querry to find all false claims related to covid or coronavirus in a very short time. 
 
-
-### Keywords
-Claims, Fact-checking, Entity Linking
 
 ### Structure
 
@@ -40,7 +40,7 @@ To install the dependencies you may use: `pip3 install -r requirements.txt`
 
 
 ### Limitation
-The method generates output based on a specified schema. For changes and alterations in the output, modifications to the schema would be required.  
+The method generates output based on a specified schema in the data model. For changes and alterations in the output, modifications to the schema would be required.  
 
 ### How to Use
 - For usage information you may use 
@@ -66,7 +66,13 @@ Sample output for Extractor module can be found at https://git.gesis.org/bda/Cla
 ### Sample Output of the method
 ![](output_sample.PNG)
 
+### ClaimsKG pipeline
 
+![ClaimsKG pipeline](claimskg_pipeline.PNG)
+
+### Data Model
+
+![](model.png)
 
 
 ## Contact
