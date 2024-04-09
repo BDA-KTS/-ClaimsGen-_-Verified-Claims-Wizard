@@ -40,7 +40,7 @@ To install the dependencies you may use: `pip3 install -r requirements.txt`
 
 
 ### Limitation
-The method generates output based on a specified schema in the data model. For changes and alterations in the output, modifications to the schema would be required.  
+The method generates output based on a specified schema in the data model section. For changes and alterations in the output, modifications to the schema would be required.  
 
 ### How to Use
 - For usage information you may use 
