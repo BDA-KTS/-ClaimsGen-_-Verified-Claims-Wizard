@@ -58,10 +58,11 @@ The method generates output based on a specified schema in the data model sectio
 
 
 
-### Input data
-The output of Extractor module is the input to the generator module in ClaimsKG.
-Sample output for Extractor module can be found at https://git.gesis.org/bda/ClaimsKG
+### Digital Behavioral data
+
 ### Sample Input to the method
+The output of Extractor module is the input to the generator module in ClaimsKG.
+Sample output for Extractor module can be found at https://git.gesis.org/bda/ClaimsKG. Sample input below
 ![](input_sample.PNG)
 ### Sample Output of the method
 ![](output_sample.PNG)
