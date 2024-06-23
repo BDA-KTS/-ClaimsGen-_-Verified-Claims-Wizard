@@ -60,6 +60,7 @@ To install the dependencies you may use: `pip3 install -r requirements.txt`
 
 
 ### Digital Behavioral data
+The method works with claims collected from various fact-checking websites, structured through claims extractor. 
 
 ### Sample Input 
 The output of Extractor module is the input to the generator module in ClaimsKG.
