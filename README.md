@@ -1,5 +1,8 @@
 # Description
-The Verified Claims Wizard is a method that generates a repository of verified claims that are collected from diverse fact-checking organizations and puts together in one place.  Each claim includes detailed information such as author, URL, date, truth values and other pertinent details, providing a rich resource of verified claims and their corresponding reviews.An user could use this method to generate a repository of claims and then search claims of their own interest based on various filter criteria.  
+The Verified Claims Wizard is a method that generates a repository of verified claims that are collected from diverse fact-checking organizations and puts together in one place.  Each claim includes detailed information such as *author, URL, date, truth values* and other pertinent details, providing a rich resource of verified claims and their corresponding reviews. 
+
+The method can be used to verify a collection of claims that are of interest to the user. The method reviews all claims and returns whether the claims are true or false and also provide the sources from which this information was verified. 
+
 
 ### Keywords
 Claims, Fact-checking, Entity Linking
