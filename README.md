@@ -11,25 +11,30 @@ Claims, Fact-checking, Entity Linking
 3. Investigate underlying motives for online fake news sharing during a particular event or time period (Balakrishnan, V., Ng, K. S., & Rahim, H. A. (2021). To share or not to share–The underlying motives of sharing fake news amidst the COVID-19 pandemic in Malaysia. Technology in Society, 66, 101676.)
 4. Investigate social media and fake news during a particular event (Allcott, H., & Gentzkow, M. (2017). Social media and fake news in the 2016 election. Journal of economic perspectives, 31(2), 211-236.)
 
-### Social Science Usecase
+### Social Science Usecases
 
-John is a researcher studying about online discourse. He wants acess to fake news within a definite time period about the US Presidential Elections. He visits the MH portal to find this method that helps him to generate a repository of fact-checked claims. He uses the search box on the top of the interface and types in Claims or Fake News. The search functionality of the MH shows him a list or related methods and tutorials that provides John with methods that can help him generate this huge collection of claims which he can then querry and find all relevant claims regarding Presidential Elections and reuse for his study.
+Getting access to news between certain dates about the US presidential elections and fact check the claims in these news items.
 
-Mary is a researcher who wants to investigate the impact of Gun laws on the society. She has a huge collection of claims, from different websites but wants to have them all at one place and search those pertaining to gun laws over a particular time period. She uses the search box to find methods related to claims or fact-checks.The search functionality of the MH shows her a list of related methods and tutorials related to claims. She then uses Verified Claims Wizard that generates a huge repository of claims out of it. She then searches this repository regarding all claims related to the Gun laws and it brings her a list of all relevant claims, be it true, false, mixed or others which she can reuse for her study.
+Reviewing a huge collection of claims about gun laws from different sources within a time frame and analyzing them for their impact on the society.
 
-
-Lily is a researcher who wants to study the evolution of false claims related to Covid or coronavirus. She collects claims from a number of fact-checking websites but does not have an easy way to pick only those that are false and also related to Covid. She uses the search box in MH to find methods related to fact-checking.The search functionality of the MH shows her a list or related methods and tutorials related to Fact-Checking that can help her generate a fact checked claims repository out of it.She generates the repository using Verified Claims Wizard and runs a search querry to find all false claims related to covid or coronavirus in a very short time. 
+Studying the evolution of only false COVID-related claims from all claims collected across different fact-checking websites.
 
 
 ### Repository Structure
 
-ClaimsKG folder -Contains the entity annotation, RDF generation, and rating normalization module
-
-
-docs folder - contains spynx documentation
-
-
-export.py - The main file to run the project
+- ClaimsKG folder
+  - Entity annotation
+  - RDF generation
+  - Util
+- docs
+  - Build
+  - sources
+  - makefile
+- export.py - The main file to run the project
+- LICENSE
+- README.md
+- requirements.txt
+- postBuild
 
 ### Environment Setup
 This program requires Python 3.x to run.
